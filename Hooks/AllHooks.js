@@ -8,9 +8,14 @@ exports.PlayWrightHooks = class PlayWrightHooks{
     constructor(page){
         this.page = page;
         this.url = 'https://automationexercise.com/';
+        this.loginLink =  page.locator('a[href="/login"]');
     }
 
-    async beforeAll(){
+    async launchURL(){
         await this.page.goto(this.url);
+    }
+
+    async clickSignUP(){
+        await expect(this.loginLink).toBeVisible();
     }
 }
