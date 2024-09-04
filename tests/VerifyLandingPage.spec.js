@@ -20,12 +20,20 @@ test("Verify new user sign up is available", async ({ page }) => {
 });
 
 test('Verify sign up', async ({page}) =>{
-  const url = new PlayWrightHooks(page);
+  const url = new PlayWrightHooks(page);    
   await url.launchURL();
   const locators = new Locators(page);
   await locators.clickSignUP();
   await locators.enterNewUserSignUpName();
   await locators.enterNewUserSignUpEmail();
-  await page.waitForTimeout(10000);
+  await locators.clickNewUserSignUpButton();
+  await locators.selectGender();
+  await locators.verifyEmailFieldIsDisabled();
+  await locators.enterNewUserSignupPassword();
+  await locators.selectDays();
+  await locators.selectMonths();
+  await locators.selectYear();
+  await locators.selectNewsLetter();
+  await page.waitForTimeout(5000);
   
 })
