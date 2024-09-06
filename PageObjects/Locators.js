@@ -1,4 +1,5 @@
-const {expect} = require('@playwright/test');
+const {expect} = require('@playwright/test'); 
+import CredGenerator from '../Resources/CredentialGenerator';
 exports.Locators = class Locators{
 
     /**
@@ -6,6 +7,7 @@ exports.Locators = class Locators{
    */
 
     constructor(page){
+        this.credGen = CredGenerator.generate(); 
         this.page = page;
         this.loginLink =  page.locator('a[href="/login"]');
         this.newUserSignUpName = page.locator('[data-qa="signup-name"]');
@@ -18,6 +20,19 @@ exports.Locators = class Locators{
         this.Months = page.locator('[data-qa="months"]')
         this.Year  = page.locator('[data-qa="years"]')
         this.NewsLetter = page.locator('id=newsletter')
+        this.specialOffers = page.locator('id=optin')
+        this.firstName = page.locator('[data-qa="first_name"]');
+        this.lastName = page.locator('[data-qa="last_name"]');
+        this.company = page.locator('[data-qa="company"]');
+        this.address1 = page.locator('[data-qa="address"]');
+        this.address2 = page.locator('[data-qa="address2"]');
+        this.country = page.locator('[data-qa="country"]');
+        this.state = page.locator('[data-qa="state"]');
+        this.city = page.locator('[data-qa="city"]');
+        this.zipCode = page.locator('[data-qa="zipcode"]');
+        this.mobileNumber = page.locator('[data-qa="mobile_number"]');
+        this.submit = page.locator('[data-qa="create-account"]');
+        this.accountCreationConfirmation = page.locator('[data-qa="account-created"]');
     }
 
     async verifySignUpVisible(){
@@ -33,7 +48,7 @@ exports.Locators = class Locators{
     }
 
     async enterNewUserSignUpEmail(){
-        await this.newUserSignUpEmail.fill('umarekanto@gmail.com');
+        await this.newUserSignUpEmail.fill(this.credGen+'@gmail.com');
     }
     async clickNewUserSignUpButton(){
         await this.newUserSignUpButton.click();
@@ -61,6 +76,46 @@ exports.Locators = class Locators{
     async selectNewsLetter(){
         await this.NewsLetter.check();
     }
+    async selectSpecialOffers(){
+        await this.specialOffers.check();
+    }
+    async enterFirstName(){
+        await this.firstName.fill('Umar');
+    }
+    async enterLastName(){
+        await this.lastName.fill('Ekanto');
+    }
+    async enterCompany(){
+        await this.company.fill('TestCompany');
+    }
+    async enterAddress1(){
+        await this.address1.fill('Deovog');
+    }
+    async enterAddress2(){
+        await this.address2.fill('Narayanganj');
+    }
+    async selectCountry(){
+        await this.country.selectOption('Australia');
+    }
+    async selectState(){
+        await this.state.fill('New South Wales');
+    }
+    async enterCity(){
+        await this.city.fill('Sydney');
+    }
+    async enterZipCode(){
+        await this.zipCode.fill('2000');
+    }
+    async enterMobileNumber(){
+        await this.mobileNumber.fill('1234567890');
+    }
+    async clickSubmit(){
+        await this.submit.click();
+    }
+    async verifyAccountCreationConfirmation(){
+        await expect(this.accountCreationConfirmation).toBeVisible();
+    }
+
 
     
 }
