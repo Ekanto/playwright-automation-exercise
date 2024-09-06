@@ -26,7 +26,6 @@ test('Verify sign up', async ({page}) =>{
   await locators.clickSignUP();
   await locators.enterNewUserSignUpName();
   await locators.enterNewUserSignUpEmail();
-  await page.waitForTimeout(5000);
   await locators.clickNewUserSignUpButton();
   await locators.selectGender();
   await locators.verifyEmailFieldIsDisabled();
@@ -48,7 +47,11 @@ test('Verify sign up', async ({page}) =>{
   await locators.enterMobileNumber();
   await locators.clickSubmit()
   await locators.verifyAccountCreationConfirmation();
-  await page.waitForTimeout(5000);
+  await locators.clickContinue()
+  await locators.verifyLoggedIn()
+  await locators.deleteAccount()
+  await locators.verifyAccountDeleted()
+  await locators.clickContinue()
   
   
 })
