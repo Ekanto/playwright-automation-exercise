@@ -1,7 +1,6 @@
 const { expect } = require("@playwright/test");
 import CredGenerator from "../Resources/CredentialGenerator";
 class Locators {
-
   constructor(page) {
     this.credGen = CredGenerator.generate();
     this.page = page;

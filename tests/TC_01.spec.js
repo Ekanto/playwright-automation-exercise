@@ -1,10 +1,6 @@
 const { test, expect } = require("@playwright/test");
 const { PlayWrightHooks } = require("../Hooks/AllHooks");
-const {Locators} = require("../Locators/Locators");
 import PageObjects from "../Pageobjects/PO_TC_01";
-const { before } = require("node:test");
-
-
 
 test("Verify the Home page visible successfully", async ({ page }) => {
   const url = new PlayWrightHooks(page);
@@ -20,8 +16,8 @@ test("Verify new user sign up is available", async ({ page }) => {
   await locators.clickSignUP();
 });
 
-test('Verify sign up', async ({page}) =>{
-  const url = new PlayWrightHooks(page);    
+test("Verify sign up", async ({ page }) => {
+  const url = new PlayWrightHooks(page);
   await url.launchURL();
   const locators = new PageObjects(page);
   await locators.clickSignUP();
@@ -46,13 +42,11 @@ test('Verify sign up', async ({page}) =>{
   await locators.enterCity();
   await locators.enterZipCode();
   await locators.enterMobileNumber();
-  await locators.clickSubmit()
+  await locators.clickSubmit();
   await locators.verifyAccountCreationConfirmation();
-  await locators.clickContinue()
-  await locators.verifyLoggedIn()
-  await locators.deleteAccount()
-  await locators.verifyAccountDeleted()
-  await locators.clickContinue()
-  
-  
-})
+  await locators.clickContinue();
+  await locators.verifyLoggedIn();
+  await locators.deleteAccount();
+  await locators.verifyAccountDeleted();
+  await locators.clickContinue();
+});

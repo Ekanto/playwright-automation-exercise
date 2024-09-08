@@ -3,15 +3,13 @@ const { test, expect } = require("@playwright/test");
 import Locators from "../Locators/Locators";
 
 class PageObjects {
-
-    constructor(page) {
-        this.pageobjects = new Locators(page);
-    }
+  constructor(page) {
+    this.pageobjects = new Locators(page);
+  }
 
   async verifySignUpVisible() {
     await expect(this.pageobjects.loginLink).click();
   }
-
 
   async clickSignUP() {
     await this.pageobjects.loginLink.click();
@@ -22,7 +20,9 @@ class PageObjects {
   }
 
   async enterNewUserSignUpEmail() {
-    await this.pageobjects.newUserSignUpEmail.fill(this.pageobjects.credGen + "@gmail.com");
+    await this.pageobjects.newUserSignUpEmail.fill(
+      this.pageobjects.credGen + "@gmail.com"
+    );
   }
   async clickNewUserSignUpButton() {
     await this.pageobjects.newUserSignUpButton.click();
@@ -101,6 +101,6 @@ class PageObjects {
   async verifyAccountDeleted() {
     await expect(this.pageobjects.accountDeteleConfirmation).toBeVisible();
   }
-};
+}
 
 export default PageObjects;
