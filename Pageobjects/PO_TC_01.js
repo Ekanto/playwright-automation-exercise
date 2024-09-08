@@ -2,7 +2,7 @@ const { test, expect } = require("@playwright/test");
 
 import Locators from "../Locators/Locators";
 
-class PageObjects {
+class PageObjects01 {
   constructor(page) {
     this.pageobjects = new Locators(page);
   }
@@ -103,4 +103,4 @@ class PageObjects {
   }
 }
 
-export default PageObjects;
+export default PageObjects01;

@@ -36,6 +36,8 @@ class Locators {
       name: "Delete Account",
     });
     this.accountDeteleConfirmation = page.getByText("Account Deleted!");
+
+    this.logintext = page.locator("h2", { hasText: "Login to your account" });
     this.loginEmail = page.locator('[data-qa="login-email"]');
   }
 }

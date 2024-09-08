@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 const { PlayWrightHooks } = require("../Hooks/AllHooks");
-import PageObjects from "../Pageobjects/PO_TC_01";
+import PageObjects01 from "../Pageobjects/PO_TC_01";
 
 test("Verify the Home page visible successfully", async ({ page }) => {
   const url = new PlayWrightHooks(page);
@@ -12,14 +12,14 @@ test("Verify the Home page visible successfully", async ({ page }) => {
 test("Verify new user sign up is available", async ({ page }) => {
   const url = new PlayWrightHooks(page);
   await url.launchURL();
-  const locators = new PageObjects(page);
+  const locators = new PageObjects01(page);
   await locators.clickSignUP();
 });
 
 test("Verify sign up", async ({ page }) => {
   const url = new PlayWrightHooks(page);
   await url.launchURL();
-  const locators = new PageObjects(page);
+  const locators = new PageObjects01(page);
   await locators.clickSignUP();
   await locators.enterNewUserSignUpName();
   await locators.enterNewUserSignUpEmail();
