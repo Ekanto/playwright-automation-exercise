@@ -39,6 +39,8 @@ class Locators {
 
     this.logintext = page.locator("h2", { hasText: "Login to your account" });
     this.loginEmail = page.locator('[data-qa="login-email"]');
+    this.loginPassword = page.locator('[data-qa="login-password"]');
+    this.loginSubmit = page.locator('[data-qa="login-button"]');
   }
 }
 
