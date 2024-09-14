@@ -1,6 +1,8 @@
 const { test, expect } = require("@playwright/test");
 
 import Locators from "../Locators/Locators";
+const fs = require("fs");
+const mockData = require("../Resources/mock_data.json");
 
 class PageObjects01 {
   constructor(page) {
@@ -20,9 +22,7 @@ class PageObjects01 {
   }
 
   async enterNewUserSignUpEmail() {
-    await this.pageobjects.newUserSignUpEmail.fill(
-      this.pageobjects.credGen + "@gmail.com"
-    );
+    await this.pageobjects.newUserSignUpEmail.fill(this.pageobjects.credGen + "@test.com");
   }
   async clickNewUserSignUpButton() {
     await this.pageobjects.newUserSignUpButton.click();
@@ -36,7 +36,7 @@ class PageObjects01 {
     await expect(this.pageobjects.emailField).toBeDisabled();
   }
   async enterNewUserSignupPassword() {
-    await this.pageobjects.passwordField.fill("123456");
+    await this.pageobjects.passwordField.fill(this.pageobjects.credGen);
   }
   async selectDays() {
     await this.pageobjects.Days.selectOption("5");

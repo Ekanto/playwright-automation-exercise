@@ -1,10 +1,12 @@
 const { expect } = require("@playwright/test");
+const fs = require("fs");
 import CredGenerator from "../Resources/CredentialGenerator";
 class Locators {
   constructor(page) {
     this.credGen = CredGenerator.generate();
     this.page = page;
     this.loginLink = page.locator('a[href="/login"]');
+    this.logOutLink = page.locator('a[href="/logout"]');
     this.newUserSignUpName = page.locator('[data-qa="signup-name"]');
     this.newUserSignUpEmail = page.locator('[data-qa="signup-email"]');
     this.newUserSignUpButton = page.locator('[data-qa="signup-button"]');
@@ -41,6 +43,7 @@ class Locators {
     this.loginEmail = page.locator('[data-qa="login-email"]');
     this.loginPassword = page.locator('[data-qa="login-password"]');
     this.loginSubmit = page.locator('[data-qa="login-button"]');
+    this.incorrectLoginCredText = page.getByText("Your email or password is incorrect!");
   }
 }
 
