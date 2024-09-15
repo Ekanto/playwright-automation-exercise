@@ -1,4 +1,6 @@
-FROM node:18-alpine
+FROM node:18-bookworm
+
+
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -6,12 +8,14 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install app dependencies
-RUN npm config set registry https://registry.npmjs.org/
-
 
 # Copy the rest of the application code
 COPY . .
+
+RUN npm install \ 
+&& npx playwright install-deps  \
+&& npx playwright install chromium
+
 
 # Expose the port the app runs on
 EXPOSE 8080
