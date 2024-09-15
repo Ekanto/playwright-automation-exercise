@@ -18,7 +18,7 @@ class PageObjects01 {
   }
 
   async enterNewUserSignUpName() {
-    await this.pageobjects.newUserSignUpName.fill(this.pageobjects.credGen);
+    await this.pageobjects.newUserSignUpName.fill('umar');
   }
 
   async enterNewUserSignUpEmail() {
@@ -91,6 +91,9 @@ class PageObjects01 {
   }
   async clickContinue() {
     await this.pageobjects.continueButton.click();
+  }
+  async clickLogOut(){
+    await this.pageobjects.logout.click();
   }
   async verifyLoggedIn() {
     await expect(this.pageobjects.checkLoggedIn).toBeVisible();

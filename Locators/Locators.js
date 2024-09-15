@@ -37,6 +37,7 @@ class Locators {
     this.deleteAccountButton = page.getByRole("link", {
       name: "Delete Account",
     });
+    this.logout = page.getByRole("link", { name: "Logout" });
     this.accountDeteleConfirmation = page.getByText("Account Deleted!");
 
     this.logintext = page.locator("h2", { hasText: "Login to your account" });

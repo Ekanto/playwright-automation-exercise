@@ -28,6 +28,7 @@ class PageObjects02 {
   async verifyAccountCreationConfirmation() {
     await expect(this.pageobjects.checkLoggedIn).toBeVisible();
   }
+
   async deleteAccount(){
     await this.pageobjects.deleteAccountButton.click()
   }

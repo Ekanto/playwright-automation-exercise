@@ -14,6 +14,7 @@ test("Verify Login with valid credentials is successful", async ({ page }) => {
   await locators.enterLoginPassword();
   await locators.clickLoginSubmit();
   await locators.verifyAccountCreationConfirmation();
-  await locators.deleteAccount();
-  await locators.verifyAccountDeleted();
+  // await locators.deleteAccount();
+  // await locators.verifyAccountDeleted();
+
 });

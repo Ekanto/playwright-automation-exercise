@@ -1,6 +1,7 @@
 const { test, expect } = require("@playwright/test");
 const { PlayWrightHooks } = require("../Hooks/AllHooks");
 import PageObjects01 from "../Pageobjects/PO_TC_01";
+const mockData = require("../Resources/mock_data.json");
 
 test("Verify the Home page visible successfully", async ({ page }) => {
   const url = new PlayWrightHooks(page);
@@ -20,6 +21,7 @@ test("Verify sign up", async ({ page }) => {
   const url = new PlayWrightHooks(page);
   await url.launchURL();
   const locators = new PageObjects01(page);
+
   await locators.clickSignUP();
   await locators.enterNewUserSignUpName();
   await locators.enterNewUserSignUpEmail();
