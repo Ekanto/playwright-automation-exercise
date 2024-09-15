@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm config set registry https://registry.npmjs.org/
+RUN npm install 
 
 
 # Copy the rest of the application code
