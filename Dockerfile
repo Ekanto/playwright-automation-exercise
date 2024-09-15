@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install 
+RUN npm config set registry https://registry.npmjs.org/
 
 
 # Copy the rest of the application code
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Define the command to run the app
-CMD ["npx playwright test"]
+CMD ["npx", "playwright", "test"]
