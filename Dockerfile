@@ -14,7 +14,8 @@ COPY . .
 
 RUN npm install \ 
 && npx playwright install-deps  \
-&& npx playwright install chromium
+&& npx playwright install chromium \
+&& npx playwright install firefox 
 
 
 # Expose the port the app runs on
