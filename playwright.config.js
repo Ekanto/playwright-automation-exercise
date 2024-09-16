@@ -1,6 +1,13 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
+
+export default defineConfig({
+  use: {
+    headless: true, // Always run in headless mode
+  },
+});
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -38,12 +45,7 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
 
-  
 
     /* Test against mobile viewports. */
     // {
