@@ -2,11 +2,6 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 
-export default defineConfig({
-  use: {
-    headless: true, // Always run in headless mode
-  },
-});
 
 /**
  * Read environment variables from file.
