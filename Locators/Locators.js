@@ -7,6 +7,7 @@ class Locators {
     this.page = page;
     this.loginLink = page.locator('a[href="/login"]');
     this.logOutLink = page.locator('a[href="/logout"]');
+    this.newUserSignUpHeading = page.getByRole('heading', { name: 'New User Signup!' })
     this.newUserSignUpName = page.locator('[data-qa="signup-name"]');
     this.newUserSignUpEmail = page.locator('[data-qa="signup-email"]');
     this.newUserSignUpButton = page.locator('[data-qa="signup-button"]');
@@ -47,6 +48,7 @@ class Locators {
     this.incorrectLoginCredText = page.getByText(
       "Your email or password is incorrect!"
     );
+    this.existingEmailText = page.getByText("Email Address already exist!");
   }
 }
 
