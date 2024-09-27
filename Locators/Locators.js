@@ -44,7 +44,9 @@ class Locators {
     this.loginEmail = page.locator('[data-qa="login-email"]');
     this.loginPassword = page.locator('[data-qa="login-password"]');
     this.loginSubmit = page.locator('[data-qa="login-button"]');
-    this.incorrectLoginCredText = page.getByText("Your email or password is incorrect!");
+    this.incorrectLoginCredText = page.getByText(
+      "Your email or password is incorrect!"
+    );
   }
 }
 
